@@ -1,0 +1,44 @@
+#include <stdlib.h>
+#include <SDL/SDL.h>
+#include <SDL_image.h>
+#include <time.h>
+
+#define WIDTH 800
+#define HEIGHT 600
+#define BPP
+#define DEPTH 32
+
+
+
+int LastRandomPersonX;
+
+    SDL_Surface *screen;
+    SDL_Surface *Background;
+    SDL_Surface *Moni;
+    SDL_Surface *Person;
+    SDL_Surface *GetraenkKommt;
+    SDL_Surface *GetraenkKommt2;
+    SDL_Surface *Christian;
+    SDL_Rect getraenkkommt;
+    SDL_Rect monirect;
+    SDL_Rect personrect;
+    SDL_Rect personlabelrect;
+    SDL_Event event;
+
+
+void pic_construct(void)
+{
+		personrect.x=PersonPlaceX;
+        personlabelrect.x=randomnr*250+50;  
+        SDL_BlitSurface(Background, NULL, screen, 0);
+        SDL_SetColorKey(Moni, SDL_SRCCOLORKEY, SDL_MapRGB(Moni->format, 255, 0, 0));
+        SDL_BlitSurface(Moni,NULL,screen,&monirect);
+        SDL_SetColorKey(Person, SDL_SRCCOLORKEY, 
+                           SDL_MapRGB(Person->format, 0, 0 , 255));
+        SDL_BlitSurface(Person,NULL,screen,&personrect);
+        SDL_SetColorKey(Christian, SDL_SRCCOLORKEY,
+                           SDL_MapRGB(Christian->format, 0, 0 , 255));
+        SDL_BlitSurface(Christian,NULL,screen,&personlabelrect);
+
+return;
+}
